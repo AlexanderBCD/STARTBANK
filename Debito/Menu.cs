@@ -22,6 +22,29 @@ class MenuDebito
                 switch(opcion)
                 {
                     case "1":
+                    
+                        Depositos depo = new Depositos();
+                        depo.DepositosDebito(TarjetaDebito);
+
+                    break;
+
+                    case "2":
+
+                    break;
+
+                    case "3":
+
+                    break;
+
+                    case "4":
+
+                    break;
+
+                    case "5":
+
+                    break;
+
+                    case "6":
 
                     return;
                 }
@@ -31,5 +54,10 @@ class MenuDebito
                 Console.WriteLine("Datos invalidos");
             }
         }
+    }
+
+    private Depositos Depositos()
+    {
+        throw new NotImplementedException();
     }
 }
