@@ -30,6 +30,9 @@ class MenuDebito
 
                     case "2":
 
+                        RetirosDebito ret = new RetirosDebito();
+                        ret.RetirarEfectivo(TarjetaDebito);
+                        
                     break;
 
                     case "3":
