@@ -30,7 +30,7 @@ class HelperRetiro
         }
     }
 
-    public double ModificarRetiro(string TarjetaDebito, double saldoRetirado)
+    public bool ModificarRetiro(string TarjetaDebito, double saldoRetirado)
     {
         string query ="UPDATE saldo SET saldodisponible = saldodisponible - @saldoRetirado WHERE TarjetaDebito = @TarjetaDebito";
 
@@ -41,9 +41,9 @@ class HelperRetiro
                 command.Parameters.AddWithValue("@TarjetaDebito",TarjetaDebito);
                 command.Parameters.AddWithValue("@saldoRetirado", saldoRetirado);
 
-                object result = command.ExecuteScalar();
+                int count = command.ExecuteNonQuery();
+                return count > 0;
 
-                return result == null ? 0 : Convert.ToDouble(result);
             }
         }
         catch(FormatException)

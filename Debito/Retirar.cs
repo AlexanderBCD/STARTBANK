@@ -4,10 +4,10 @@ class RetirosDebito
     public void RetirarEfectivo(string TarjetaDebito)
     {
         bool valido = false;
+        double saldoretirar = 0;
         while(!valido)
         {
-            double saldodisponible = (helper.ConsultarSaldo(TarjetaDebito));
-            double saldoretirar;
+            double saldodisponible = helper.ConsultarSaldo(TarjetaDebito);
             Console.Clear();
             Console.WriteLine("Bienvenido al apartado de retiros");
             Console.WriteLine($"Saldo disponible: {saldodisponible}");
@@ -20,6 +20,9 @@ class RetirosDebito
                 {
                     valido = true;
 
+
+                  
+                    
                 }
 
             }
@@ -28,7 +31,19 @@ class RetirosDebito
                 Console.WriteLine("Ingresar un valor valido");
             }
 
+
         }
+
+          if (helper.ModificarRetiro(TarjetaDebito, saldoretirar))
+                    {
+                        Console.WriteLine("Se ha realizado el retiro exitosamente");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Fallö el retiro");
+                    }
+
+        
 
         
 
